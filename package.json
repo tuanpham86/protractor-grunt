@@ -25,6 +25,6 @@
     "grunt-protractor-runner": "^3.2.0",
     "grunt-shell-spawn": "^0.3.10",
     "protractor": "^3.3.0",
-    "protractor-html-screenshot-reporter": "0.0.21"
+    "protractor-jasmine2-screenshot-reporter": "^0.3.1"
   }
 }
