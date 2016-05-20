@@ -1,8 +1,12 @@
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 
 var reporter = new HtmlScreenshotReporter({
-    dest: 'target/screenshots',
+    dest: 'screenshots',
     filename: 'my-report.html'
+    //pathBuilder: function (currentSpec, suites, browserCapabilities) {
+        // will return chrome/your-spec-name.png
+    //    return browserCapabilities.get('browserName') + '/' + currentSpec.fullName;
+    //}
 });
 
 // A reference configuration file.
@@ -42,7 +46,7 @@ exports.config = {
     // Spec patterns are relative to the location of this config.
     specs: [
     './specs/*.js'
-  ],
+    ],
 
     // ----- Capabilities to be passed to the webdriver instance ----
     //
@@ -95,5 +99,6 @@ exports.config = {
         includeStackTrace: true,
         // Default time to wait in ms before a test fails.
         defaultTimeoutInterval: 10000
-    }
+    },
+    rootElement: 'body'
 };
