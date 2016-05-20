@@ -26,6 +26,8 @@ describe('login from meshwork homepage', function () {
         signin_page.clickLogin();
         
         //expect(element(by.css('view-header')).isPresent()).toBe(true);
+        var space = browser.findElement(by.css('div.view-title.ng-binding'));
+        expect(space.getText()).toBe('Spaces');
         //expect(element(by.css('.view-header .view-title')).isPresent()).tobe(true);
     });
 });
