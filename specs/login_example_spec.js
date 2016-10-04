@@ -1,7 +1,7 @@
 describe('login from meshwork homepage', function () {
 
     beforeEach(function () {
-        browser.get('http://meshwork.tma.com.vn');
+        browser.get('https://meshworkappuat.herokuapp.com');
     });
     //browser.get('http://meshwork.tma.com.vn');
 
@@ -12,14 +12,16 @@ describe('login from meshwork homepage', function () {
     it('should login successfully', function () {
         expect(browser.getTitle()).toBe('Meshwork');
         
-        home_page.clickLogin();
+        //home_page.clickLogin();
+        home_page.clickSignUp();
         expect(element(by.buttonText('Get Started')).isPresent()).toBe(true);
         
         welcome_page.clickLink();
         expect(element(by.buttonText('Use Email Address')).isPresent()).toBe(true);
         
         signin_page.clickEmail();
-        expect(element(by.id('btnSignIn')).isPresent()).toBe(true);
+        //expect(element(by.id('btnSignIn')).isPresent()).toBe(true);
+        expect(element(by.name('go')).isPresent()).toBe(true);
         
         //signin_page = require('../page/signin_page.js');
         signin_page.keyin();
