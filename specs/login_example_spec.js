@@ -15,7 +15,7 @@ describe('login from meshwork homepage', function () {
     
     it('should login successfully', function () {
         expect(browser.getTitle()).toBe('Meshwork');
-        browser.sleep(10000);
+        browser.waitForAngular();
         
         welcome_page.clickLink();
         expect(element(by.buttonText('Use Email Address')).isPresent()).toBe(true);
@@ -32,10 +32,9 @@ describe('login from meshwork homepage', function () {
         signin_page.keyin();
         signin_page.clickLogin();
         browser.waitForAngular();
-        browser.sleep(10000);
-        //expect(element(by.css('view-header')).isPresent()).toBe(true);
+        //browser.sleep(10000);
+        
         var space = browser.findElement(by.css('.view-title.no-padding.float-left.width-cal-360.ng-binding'));
         expect(space.getText()).toBe('Spaces');
-        //expect(element(by.css('.view-header .view-title')).isPresent()).tobe(true);
     });
 });
