@@ -11,29 +11,24 @@ describe('login from meshwork homepage', function () {
         browser.get('https://meshworkappsit.herokuapp.com');
         browser.waitForAngular();
     });
-    //browser.get('http://meshwork.tma.com.vn');
-    
-    it('should login successfully', function () {
+
+    it('should navigate to welcome page', function () {
         expect(browser.getTitle()).toBe('Meshwork');
-        browser.waitForAngular();
-        
+        expect(browser.getCurrentUrl()).toMatch(/\/welcome/);
+        //browser.waitForAngular();
+    });
+
+    it('should login success', function () {
         welcome_page.clickLink();
         expect(element(by.buttonText('Use Email Address')).isPresent()).toBe(true);
-        
-        //home_page.clickLogin();
-        //home_page.clickSignUp();
-        //expect(element(by.buttonText('Get Started')).isPresent()).toBe(true);
-        
+
         signin_page.clickEmail();
-        //expect(element(by.id('btnSignIn')).isPresent()).toBe(true);
         expect(element(by.name('go')).isPresent()).toBe(true);
-        
-        //signin_page = require('../page/signin_page.js');
+
         signin_page.keyin();
         signin_page.clickLogin();
         browser.waitForAngular();
         //browser.sleep(10000);
-        
         var space = browser.findElement(by.css('.view-title.no-padding.float-left.width-cal-360.ng-binding'));
         expect(space.getText()).toBe('Spaces');
     });
