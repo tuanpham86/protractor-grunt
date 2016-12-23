@@ -9,7 +9,8 @@ Installation
 Do the following commands after downloading this repo
 
 $ npm install
-$ grunt install
+
+node_modules\.bin> webdriver-manager update
 
 To run the test
 
